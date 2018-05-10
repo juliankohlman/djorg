@@ -1,12 +1,52 @@
-<h1>Bookmarks</h1>
-
-{% if bookmarks %}
+ {% if bookmark_list %}
 <ol>
-  {% for bookmark in bookmarks %}
-  <li><a href="{{ bookmark.url }}">{{ bookmark.name }}</a></li>
+  {% for bookmark in bookmark_list %}
+  <li>
+    <a href="{{ bookmark.url }}">{{ bookmark.name }}</a>
+  </li>
   {% endfor %}
 </ol>
 {% else %}
 <p>No bookmarks found currently</p>
 {% endif %}
-<!-- Todo add form below or as part or another template-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+     <!-- {% if bookmark_list %}
+    <ol>
+      {% for bookmark in bookmark_list %}
+      <li>
+        <a href="{{ bookmark.url }}">{{ bookmark.name }}</a>
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p>No bookmarks found currently</p>
+    {% endif %} -->
+    <!-- <table>
+        <caption>{{ title }}</caption>
+        <! <thead><th>ID</th><th>Name</th><th>Status</th><th>Create At</th></thead> -->
+        <!-- <tbody> -->
+        <!-- {% for bookmark in bookmarks%} -->
+        <!-- <tr><td>{{ bookmark.name }}</td><td>{{ bookmark.url }}</td></tr> -->
+        <!-- {% endfor %} -->
+        <!-- </tbody> -->
+    <!-- </table> -->
+    <form method="POST" action="/bookmarks/">
+        <fieldset>
+            <legend>Create Bookmark</legend>
+            {% csrf_token %}
+            {{ form_user }}
+            <button type="submit">Create</button>
+        </fieldset>
+    </form>
+  </body>
+</html>
+
+
+

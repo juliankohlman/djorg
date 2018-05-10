@@ -1,5 +1,5 @@
 from uuid import uuid4
-from django.forms import ModelForm
+# from django.forms import ModelForm
 from django.db import models
 
 # Create your models here.
@@ -7,7 +7,7 @@ from django.db import models
 class Bookmark(models.Model):
   """ Bookmarks model """
   # id -- pk
-  id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+  # id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
   # created_at
   created_at = models.DateTimeField(auto_now_add=True)
   # description/notes
@@ -22,9 +22,9 @@ class Bookmark(models.Model):
   url = models.URLField('URL', unique=True)
 
 # Bookmark ModelForm
-class BookmarkForm(ModelForm):
-  # Todo add validation
-  class Meta:
-    model = Bookmark
-    fields = ['url', 'name', 'tag', 'description']
+# class BookmarkForm(ModelForm):
+#   # Todo add validation
+#   class Meta:
+#     model = Bookmark
+#     fields = ['url', 'name', 'tag', 'description']
 

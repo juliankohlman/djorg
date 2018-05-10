@@ -9,20 +9,20 @@ def index(request):
   context['bookmarks'] = Bookmark.objects.all()
   return render(request, 'bookmarks/index.html', context)
 
-def bookmark_create(request):
-  return render(request, 'bookmarks/create')
+# def bookmark_create(request):
+#   return render(request, 'bookmarks/create')
   
-# Django form class(include model within the index)
-class BookmarkCreate(CreateView):
-  model = Bookmark
-  fields = ['url', 'name', 'tag', 'description']
-  initial={'name': 'DevDocs',}
-  success_url = reverse_lazy('index')
+# # Django form class(include model within the index)
+# class BookmarkCreate(CreateView):
+#   model = Bookmark
+#   fields = ['url', 'name', 'tag', 'description']
+#   initial={'name': 'DevDocs',}
+#   # success_url = reverse_lazy('bookmarks')
 
-class BookmarkUpdate(UpdateView):
-  model = Bookmark
-  fields = ['url', 'name', 'tag', 'description']
+# class BookmarkUpdate(UpdateView):
+#   model = Bookmark
+#   fields = ['url', 'name', 'tag', 'description']
 
-class BookmarkDelete(DeleteView):
-  model = Bookmark
-  success_url = reverse_lazy('bookmarks')
+# class BookmarkDelete(DeleteView):
+#   model = Bookmark
+#   success_url = reverse_lazy('bookmark')

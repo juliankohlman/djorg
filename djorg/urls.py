@@ -20,8 +20,7 @@ from bookmarks import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bookmarks/', include('bookmarks.urls')),
-    path('bookmarks/create/', views.BookmarkCreate.as_view(), name='bookmark_create'),
-    path('bookmarks/<int:pk>/update/', views.BookmarkUpdate.as_view(), name='bookmark_update'),
-    path('bookmarks/<int:pk>/delete/', views.BookmarkDelete.as_view(), name='bookmark_delete'),
-    # path('bookmark/', include('bookmark.urls')),
+    # path('bookmarks/create/', views.BookmarkCreate.as_view(), name='bookmark_create'),
+    # path('bookmarks/<int:pk>/update/', views.BookmarkUpdate.as_view(), name='bookmark_update'),
+    # path('bookmarks/<int:pk>/delete/', views.BookmarkDelete.as_view(), name='bookmark_delete'),
 ]

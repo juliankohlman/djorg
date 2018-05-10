@@ -16,7 +16,6 @@ class bookmarks(View):
       bookmark_list.append({'Name': bookmark.name, 'Url': bookmark.url})
 
     return render(request, self.template_name, {
-      'title': 'Bookmark List',
       'bookmark_list': bookmark_list,
       'form_user': form_user
     })
@@ -27,12 +26,9 @@ class bookmarks(View):
         form_user.save()
         return HttpResponseRedirect('/bookmarks')
 
-
-
 def index(request):
-  # if request.method == 'GET':
-  #   form = BookmarkForm()
-  context = {}
   # TODO: business logic, get data, etc...
+  context = {}
+  context['form'] = BookmarkForm()
   context['bookmarks'] = Bookmark.objects.all()
   return render(request, 'bookmarks/index.html', context)

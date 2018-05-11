@@ -1,11 +1,10 @@
 {% block content %}
-
-<form action="" method="post">
+<h2>Add a New Bookmark</h2>
+<form method="POST" action="/bookmarks/">
     {% csrf_token %}
     <table>
-    {{ form.as_table }}
+        {{ form_user }}
     </table>
-    <input type="submit" value="Submit" />
-    
+    <button type="submit">Add Bookmark</button>
 </form>
 {% endblock %}

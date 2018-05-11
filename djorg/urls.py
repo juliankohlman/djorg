@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 from bookmarks import views
 import bookmarks.views as BookmarkViews
+# import generic views TemplateView takes in and returns template * line 18
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/bookmarks/', permanent=True)),
     path('bookmarks/', BookmarkViews.bookmarks.as_view()),
-    path('bookmarks/', include('bookmarks.urls')),    
+    path('bookmarks/', include('bookmarks.urls')),
 ]

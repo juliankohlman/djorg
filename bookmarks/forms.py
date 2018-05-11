@@ -5,4 +5,4 @@ class BookmarkForm(forms.ModelForm):
   # Todo add validation
   class Meta:
     model = Bookmark
-    fields = ['url', 'name', 'tag', 'description']
+    fields = ['name', 'url', 'tag', 'description']

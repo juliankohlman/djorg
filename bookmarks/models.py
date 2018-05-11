@@ -1,4 +1,5 @@
 from uuid import uuid4
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -14,6 +15,9 @@ class Bookmark(models.Model):
 
   def __str__(self):
     return self.name
+
+class PersonalBookmark(Bookmark):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 

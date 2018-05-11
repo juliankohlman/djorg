@@ -1,6 +1,7 @@
 from uuid import uuid4
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 # TODO ADD bookmarked on  column (see Question model from django tutorial)
@@ -16,8 +17,7 @@ class Bookmark(models.Model):
   def __str__(self):
     return self.name
 
-class PersonalBookmark(Bookmark):
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+  def get_absolute_url(self):
+    return reverse('editpath', kwargs={'pk' : self.pk})
 
 

@@ -1,0 +1,18 @@
+{% block content %} 
+{% if bookmarks %}
+<h1>Bookmark List</h1>
+<ol>
+  {% for bookmark in bookmarks %}
+  <li>
+    {{ bookmark.name }}
+    <a target="_blank" href="{{ bookmark.Url }}">{{ bookmark.Name }}</a>
+    <a href="{% url 'bookmarks:bookmark_edit' bookmark.id %">edit</a>
+    <a href="{% url 'bookmarks:bookmark_delete' bookmark.id %">delete</a>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<p>No bookmarks found currently</p>
+{% endif %}
+<a href="{% url 'bookmarks:bookmark_new' %}">new</a>
+{% endblock %}

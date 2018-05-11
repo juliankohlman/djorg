@@ -3,7 +3,7 @@
 <form method="POST" action="/bookmarks/">
     {% csrf_token %}
     <table>
-        {{ form_user }}
+        {{ form.as_p }}
     </table>
     <button type="submit">Add Bookmark</button>
 </form>

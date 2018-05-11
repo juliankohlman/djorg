@@ -4,10 +4,12 @@
 <ol>
   {% for bookmark in bookmarks %}
   <li>
-    {{ bookmark.name }}
-    <a target="_blank" href="{{ bookmark.Url }}">{{ bookmark.Name }}</a>
-    <a href="{% url 'bookmarks:bookmark_edit' bookmark.id %">edit</a>
-    <a href="{% url 'bookmarks:bookmark_delete' bookmark.id %">delete</a>
+    <a target="_blank" href="{{ bookmark.url }}">{{ bookmark.name }}</a>
+    <ul>
+      <li><a href="{% url 'bookmarks:bookmark_edit' bookmark.id %}">edit</a> </li>
+      <li><a href="{% url 'bookmarks:bookmark_delete' bookmark.id %}">delete</a></li>
+    </ul>
+    <br>
   </li>
   {% endfor %}
 </ol>

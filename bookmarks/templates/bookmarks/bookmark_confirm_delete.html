@@ -2,7 +2,7 @@
 
 <h1>Delete bookmark</h1>
 
-<p>Are you sure you want to delete the bookmark: {{ bookmark.name }}?</p>
+<p>Are you sure you want to delete the bookmark for: {{ object.name }}?</p>
 
 <form action="" method="POST">
   {% csrf_token %}

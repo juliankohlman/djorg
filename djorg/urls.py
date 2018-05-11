@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 # from bookmarks import views
+# from django.conf.urls import url
 
 # from django.views.generic import RedirectView, TemplateView
 # import bookmarks.views as BookmarkViews
@@ -30,7 +31,7 @@ from django.urls import include, path
 app_name = 'bookmarks'
 
 urlpatterns = [
-    path(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('bookmarks/', include('bookmarks.urls', namespace='bookmarks')),
     # url(r'^$', views.bookmark_list, name='bookmark_list'),
     # url(r'^new$', views.bookmark_create, name='bookmark_new'),

@@ -24,9 +24,9 @@ def bookmark_create(request, template_name='bookmarks/bookmark_form.html'):
     return redirect('bookmarks:bookmark_list')
   return render(request, template_name, {'form': form})
 
-def bookmark_update(request, pk, template_name='bookmarks/bookmark_form.html'):
+def bookmark_update(request, pk, template_name='bookmarks/bookmark_edit.html'):
   bookmark = get_object_or_404(Bookmark, pk=pk)
-  form = BookmarkForm(request.POST or None, instance=bookmark)
+  form = BookmarkForm(request.POST)
   if form.is_valid():
     form.save()
     return redirect('bookmarks:bookmark_list')
@@ -37,7 +37,7 @@ def bookmark_delete(request, pk, template_name='bookmarks/bookmark_confirm_delet
   if request.method == 'POST':
     bookmark.delete()
     return redirect('bookmarks:bookmark_list')
-  return render(request, template_name, {'deleted bookmark': bookmark})
+  return render(request, template_name, {'object': bookmark})
 
 
 

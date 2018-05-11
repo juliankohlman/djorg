@@ -32,6 +32,7 @@ app_name = 'bookmarks'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('bookmarks.urls', namespace='bookmarks')),
     path('bookmarks/', include('bookmarks.urls', namespace='bookmarks')),
     # url(r'^$', views.bookmark_list, name='bookmark_list'),
     # url(r'^new$', views.bookmark_create, name='bookmark_new'),

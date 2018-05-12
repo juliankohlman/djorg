@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # 'vj1w(b6xyl71(xewvdg*9d2^00$ke@a22n7fb&4t%(9y9@p$-j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = config('DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = ['.herokuapp.com', '.localhost']
 
@@ -89,7 +89,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.config()
+# DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -129,3 +129,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
+
+try:
+    from local_settings import *
+except ImportError as e:
+    pass

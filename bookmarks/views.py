@@ -1,6 +1,4 @@
-# from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-# from django.views.generic import View
 from django import forms
 from .models import Bookmark
 
@@ -11,14 +9,14 @@ class BookmarkForm(forms.ModelForm):
     fields = ['name', 'url', 'tag', 'description']
 
 def bookmark_list(request, template_name='bookmarks/bookmark_list.html'):
-  context = {}
-  context['bookmarks'] = Bookmark.objects.all()
-  # context['object_list'] = bookmarks
-  return render(request, template_name, context)
+  bookmarks = Bookmark.objects.all()
+  data = {}
+  data['object_list'] = bookmarks
+  return render(request, template_name, data)
 
 def bookmark_create(request, template_name='bookmarks/bookmark_form.html'):
-  # TODO: what is the condition doing??
-  form = BookmarkForm(request.POST or None) 
+  # or None ??? 
+  form = BookmarkForm(request.POST or None)
   if form.is_valid():
     form.save()
     return redirect('bookmarks:bookmark_list')
@@ -26,7 +24,7 @@ def bookmark_create(request, template_name='bookmarks/bookmark_form.html'):
 
 def bookmark_update(request, pk, template_name='bookmarks/bookmark_edit.html'):
   bookmark = get_object_or_404(Bookmark, pk=pk)
-  form = BookmarkForm(request.POST)
+  form = BookmarkForm(request.POST or None, instance = bookmark)
   if form.is_valid():
     form.save()
     return redirect('bookmarks:bookmark_list')

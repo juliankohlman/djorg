@@ -19,7 +19,7 @@ class Bookmark(models.Model):
     return self.name
 
   def get_absolute_url(self):
-    return reverse('editpath', kwargs={'pk' : self.pk})
+    return reverse('bookmark_edit', kwargs={'pk' : self.pk})
     
 
 

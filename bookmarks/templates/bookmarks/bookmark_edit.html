@@ -1,6 +1,6 @@
 {% block content %}
 <h2>Edit Bookmark</h2>
-<form method="POST" action="/bookmarks/">
+<form method="POST">
   {% csrf_token %}
   <table>
     {{ form.as_p }}

@@ -1,8 +1,10 @@
 {% block content %} 
-{% if bookmarks %}
+
+{% if object_list %}
+
 <h1>Bookmark List</h1>
 <ol>
-  {% for bookmark in bookmarks %}
+  {% for bookmark in object_list %}
   <li>
     <a target="_blank" href="{{ bookmark.url }}">{{ bookmark.name }}</a>
     <ul>

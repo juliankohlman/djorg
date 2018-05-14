@@ -5,7 +5,7 @@ from django.db import models
 from django.urls import reverse
 
 # Create your models here.
-# TODO ADD bookmarked on  column (see Question model from django tutorial)
+# TODO ADD bookmarked on column (see Question model from django tutorial)
 class Bookmark(models.Model):
   """ Bookmarks model """
   created_at = models.DateTimeField(auto_now_add=True)

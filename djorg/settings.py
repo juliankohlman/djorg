@@ -15,6 +15,7 @@ from decouple import config
 import django_heroku
 import dj_database_url
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -42,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 3rd party apps
-    'bootstrap4', 
+    'bootstrap4',
+    'rest_framework',
     # my apps
     'bookmarks.apps.BookmarksConfig',
+    'notes.apps.NotesConfig',
 ]
 
 MIDDLEWARE = [
@@ -87,6 +90,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionOrAnonReadOnly'
+    # ]
 }
 
 # DATABASES['default'] = dj_database_url.config(default=config('DATABASE_URL'))

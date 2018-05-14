@@ -4,7 +4,7 @@
 
 <p>Are you sure you want to delete the bookmark for: {{ object.name }}?</p>
 
-<form action="" method="POST">
+<form method="POST">
   {% csrf_token %}
   <input type="submit" action="" value="Yes, delete." />
 </form>

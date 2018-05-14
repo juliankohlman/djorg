@@ -8,7 +8,6 @@ from django.urls import reverse
 # TODO ADD bookmarked on column (see Question model from django tutorial)
 class Bookmark(models.Model):
   """ Bookmarks model """
-  id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
   created_at = models.DateTimeField(auto_now_add=True)
   description = models.TextField(blank=True)
   last_modified = models.DateTimeField(auto_now=True)

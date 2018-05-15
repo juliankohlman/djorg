@@ -1,3 +1,4 @@
+# REST_FRAMEWORK
 from django.conf import settings
 from rest_framework import serializers, viewsets
 from .models import Note
@@ -10,6 +11,7 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Note
+        # title and content endpoints exposed
         fields = ('title', 'content')
 
     def create(self, validated_data):

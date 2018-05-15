@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd party apps
     'bootstrap4',
+    'graphene_django',
     'rest_framework',
     # my apps
     'bookmarks.apps.BookmarksConfig',
@@ -86,6 +87,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'  # Where your Graphene schema lives
+}
+
 WSGI_APPLICATION = 'djorg.wsgi.application'
 
 # Database
@@ -94,6 +99,7 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
+
 
 
 # Password validation

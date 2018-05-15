@@ -1,11 +1,12 @@
 from django.db import models
+from uuid import uuid4
 from django.urls import reverse
 
 # Create your models here.
 # TODO ADD bookmarked on column (see Question model from django tutorial)
 class Bookmark(models.Model):
   """ Bookmarks model """
-  id = models.IntegerField(primary_key=True, unique=True, editable=False)
+  id = models.IntegerField(primary_key=True, serialize=True, editable=False)
   created_at = models.DateTimeField(auto_now_add=True)
   description = models.TextField(blank=True)
   last_modified = models.DateTimeField(auto_now=True)

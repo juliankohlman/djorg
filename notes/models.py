@@ -2,14 +2,6 @@ from uuid import uuid4
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
-'''
-# Note class
-  # id == pk
-  # user == fk Many notes: One user
-'''
-
-
 class Note(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)

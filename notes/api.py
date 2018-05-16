@@ -3,15 +3,14 @@ from django.conf import settings
 from rest_framework import serializers, viewsets
 from .models import Note
 
-# TODO Complete Note model
-
+# * Serializers define what data is exposed, and how it's exposed
+# * title and content endpoints exposed
+# ! import pdb: pdb.set_trace() --> launches within methods scope
 
 class NoteSerializer(serializers.HyperlinkedModelSerializer):
     """Serializer to define the API representation for Notes."""
-
     class Meta:
         model = Note
-        # title and content endpoints exposed
         fields = ('title', 'content')
 
     def create(self, validated_data):
@@ -21,6 +20,7 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
         return note
 
 
+# * Sets up routes and c.r.u.d op's
 class NoteViewSet(viewsets.ModelViewSet):
     """ViewSet to define the view behavior for Notes."""
     serializer_class = NoteSerializer

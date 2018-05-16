@@ -1,2 +1,2 @@
 # djorg
-Django project for personal organization apps
+Django project for personal organizational apps

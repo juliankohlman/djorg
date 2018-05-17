@@ -7,30 +7,32 @@ from .models import Note
 # * title and content endpoints exposed
 # ! import pdb: pdb.set_trace() --> launches within methods scope
 
-class NoteSerializer(serializers.HyperlinkedModelSerializer):
-    """Serializer to define the API representation for Notes."""
-    class Meta:
-        model = Note
-        fields = ('title', 'content')
+# class NoteSerializer(serializers.HyperlinkedModelSerializer):
+#     """Serializer to define the API representation for Notes."""
+#     class Meta:
+#         model = Note
+#         fields = ('title', 'content')
 
-    def create(self, validated_data):
-        """Override create to associate current user with new note."""
-        user = self.context['request'].user
-        note = Note.objects.create(user=user, **validated_data)
-        return note
+#     def create(self, validated_data):
+#         """Override create to associate current user with new note."""
+#         user = self.context['request'].user
+#         note = Note.objects.create(user=user, **validated_data)
+#         note = Note.objects.all()
+#         note.save()
+#         return note
 
 
 # * Sets up routes and c.r.u.d op's
-class NoteViewSet(viewsets.ModelViewSet):
-    """ViewSet to define the view behavior for Notes."""
-    serializer_class = NoteSerializer
-    queryset = Note.objects.none()
+# class NoteViewSet(viewsets.ModelViewSet):
+#     """ViewSet to define the view behavior for Notes."""
+#     queryset = Note.objects.none()
+#     serializer_class = NoteSerializer
 
-    def get_queryset(self):
-        user = self.request.user
-        if settings.DEBUG:
-            return Note.objects.all()
-        elif user.is_anonymous:
-            return Note.objects.none()
-        else:
-            return Note.objects.filter(user=user)
+#     def get_queryset(self):
+#         user = self.request.user
+#         if settings.DEBUG:
+#             return Note.objects.all()
+#         elif user.is_anonymous:
+#             return Note.objects.none()
+#         else:
+#             return Note.objects.filter(user=user)

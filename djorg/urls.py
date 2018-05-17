@@ -17,17 +17,18 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
-from rest_framework import routers
-from notes.api import NoteViewSet
+# from rest_framework import routers
+# from notes.api import NoteViewSet
 
 app_name = 'bookmarks'
 # url(r'^api-auth/', include('rest_framework.urls'))
-router = routers.DefaultRouter()
-router.register(r'notes', NoteViewSet)
+# router = routers.DefaultRouter()
+# router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/', include('notes.urls')),
+    # path('api/', include(router.urls)),
     path('bookmarks/', include('bookmarks.urls', namespace='bookmarks')),
     path('graphql/', GraphQLView.as_view(graphiql=True)),
     path('', TemplateView.as_view(template_name='djorg_base.html')),
